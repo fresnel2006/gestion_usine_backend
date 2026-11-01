@@ -1,0 +1,13 @@
+# Secrets
+.env
+.env.local
+
+# Python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Divers
+.vscode/
+*.log
