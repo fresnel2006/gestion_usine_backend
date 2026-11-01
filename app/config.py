@@ -14,6 +14,13 @@ class Settings(BaseSettings):
     seuil_stock_faible: int = 5
 
     @property
+    def database_url_sqlalchemy(self) -> str:
+        """Certains hébergeurs fournissent postgres://, que SQLAlchemy 2 refuse."""
+        if self.database_url.startswith("postgres://"):
+            return "postgresql://" + self.database_url[len("postgres://"):]
+        return self.database_url
+
+    @property
     def cors_origin_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
 

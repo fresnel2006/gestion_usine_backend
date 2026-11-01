@@ -15,7 +15,7 @@ from app.main import app
 from app.models import Utilisateur
 from app.security import creer_jeton
 
-moteur = create_engine(os.environ.get("TEST_DATABASE_URL", settings.database_url))
+moteur = create_engine(os.environ.get("TEST_DATABASE_URL", settings.database_url_sqlalchemy))
 
 
 @pytest.fixture
